@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:vietnam_airlines/app/shared/theme.dart';
 
-class custom_textfield extends StatelessWidget {
-  const custom_textfield({
+class CustomTextfield extends StatelessWidget {
+  const CustomTextfield({
     super.key,
     required this.title,
     required this.hintText,

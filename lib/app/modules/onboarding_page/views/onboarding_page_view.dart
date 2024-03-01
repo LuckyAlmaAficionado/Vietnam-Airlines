@@ -197,7 +197,7 @@ class OnboardingPageView extends GetView<OnboardingPageController> {
                                   child: ElevatedButton(
                                     onPressed: () {
                                       (controller.curIndex.value == 2)
-                                          ? Get.toNamed(Routes.REGISTER_PAGE)
+                                          ? Get.toNamed(Routes.LOGIN_PAGE)
                                           : controller.carouselController
                                               .nextPage();
                                     },

@@ -2,36 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 import 'package:get/get.dart';
+import 'package:vietnam_airlines/app/routes/app_pages.dart';
+import 'package:vietnam_airlines/app/shared/custom_textfield.dart';
 import 'package:vietnam_airlines/app/shared/theme.dart';
 
-import '../../../shared/custom_textfield.dart';
-import '../controllers/register_page_controller.dart';
+import '../controllers/forgot_password_controller.dart';
 
-class RegisterPageView extends GetView<RegisterPageController> {
-  const RegisterPageView({Key? key}) : super(key: key);
+class ForgotPasswordView extends GetView<ForgotPasswordController> {
+  const ForgotPasswordView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: Text(
-          'Register',
+          'Forgot password',
           style: textStyle1.copyWith(
             fontWeight: bold,
             fontSize: 20,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            intro(),
-            formField(),
-          ],
-        ),
+      body: Column(
+        children: [
+          const Gap(16),
+          intro(),
+          phoneNumber(),
+        ],
       ),
       bottomNavigationBar: Container(
         padding:
@@ -49,12 +46,14 @@ class RegisterPageView extends GetView<RegisterPageController> {
           width: Get.width,
           height: 48,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.VERIFY_PAGE);
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: primaryYellowColor,
             ),
             child: Text(
-              'Register',
+              'Confirm',
               style: textStyle6.copyWith(
                 fontWeight: bold,
                 fontSize: 16,
@@ -66,50 +65,56 @@ class RegisterPageView extends GetView<RegisterPageController> {
     );
   }
 
-  Widget formField() => Container(
-        margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        padding: const EdgeInsets.fromLTRB(16, 32, 16, 24),
-        width: double.infinity,
-        height: 313,
+  Widget phoneNumber() => Container(
+        margin: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 16,
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
         ),
+        padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomTextfield(
-              hintText: '@gmail.com',
-              title: 'Email',
-            ),
-            CustomTextfield(
-              hintText: '9 digital',
               title: 'Phone number',
+              hintText: "+62",
             ),
           ],
         ),
       );
 
   Widget intro() => Container(
-        margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
-        padding: const EdgeInsets.fromLTRB(16, 32, 16, 24),
-        width: double.infinity,
+        width: Get.width,
+        height: 216,
+        margin: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.only(
+          top: 29,
+          left: 16,
+          right: 16,
+          bottom: 24,
+        ),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Column(
           children: [
-            SizedBox(
+            Container(
               width: 96,
               height: 96,
-              child: Image.asset('assets/ic_register.png'),
+              child: Image.asset('assets/ic_padlock.png'),
             ),
-            const Gap(24),
+            const Gap(27),
             Text(
-              'Fill full information on this to register',
-              style: textStyle1,
-            )
+              'Enter your phone number below, we’ll send you a verify code.tt',
+              textAlign: TextAlign.center,
+              style: textStyle1.copyWith(
+                fontWeight: regular,
+                fontSize: 14,
+              ),
+            ),
           ],
         ),
       );
