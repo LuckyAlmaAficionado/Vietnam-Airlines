@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../modules/forgot_password/bindings/forgot_password_binding.dart';
-import '../modules/forgot_password/views/forgot_password_view.dart';
+import '../modules/forgot_password_page/bindings/forgot_password_binding.dart';
+import '../modules/forgot_password_page/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login_page/bindings/login_page_binding.dart';
