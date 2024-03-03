@@ -67,12 +67,12 @@ class VerifyPageView extends GetView<VerifyPageController> {
                   style: textStyle1.copyWith(),
                 ),
                 const Gap(4),
-                Text(
-                  '01:20',
-                  style: GoogleFonts.poppins(
-                    color: primaryYellowColor,
-                  ),
-                ),
+                Obx(() => Text(
+                      controller.timerValue.value,
+                      style: GoogleFonts.poppins(
+                        color: primaryYellowColor,
+                      ),
+                    )),
               ],
             ),
             const Gap(26),
